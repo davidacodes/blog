@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Home</title>
+</head>
+<body>
+
+<h1>Hello, <span th:text="${name}">World</span>!</h1>
+
+
+<div th:if="${users}">
+
+    <div th:each="user : ${users}">
+        <h3>
+            Welcome <span th:text="${user}"></span>
+        </h3>
+    </div>
+</div>
+
+<div th:include="partials/footer :: footer"></div>
+<div th:replace="partials/footer :: footer"></div>
+</body>
+</html>

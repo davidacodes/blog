@@ -1,10 +1,11 @@
 package com.example.blog.controllers;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class HelloWorldController {
@@ -24,5 +25,24 @@ public class HelloWorldController {
     @ResponseBody
     public String lights() {
         return "lights on";
+    }
+
+    @GetMapping("/hello/{name}")
+    public String sayHello(@PathVariable String name, Model model) {
+        model.addAttribute("name", name);
+        return "hello";
+    }
+
+    @GetMapping("/home/users")
+    public String welcomeUsers(Model model) {
+
+        List<String> users = new ArrayList<>();
+
+        users.add("John");
+        users.add("Cindy");
+        users.add("Fred");
+
+        model.addAttribute("users", users);
+        return "hello";
     }
 }

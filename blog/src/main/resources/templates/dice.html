@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Home</title>
+    <div th:include="partials/header :: header"></div>
+</head>
+<body>
+<div th:include="partials/navbar :: navbar"></div>
+
+<H2>Dice roller!</H2>
+<form action = "/dice/roll" method = "post">
+    <input type="submit" name="roll" value="roll" />
+</form>
+
+<div th:include="partials/footer :: footer"></div>
+
+</body>
+</html>

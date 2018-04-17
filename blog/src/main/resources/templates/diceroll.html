@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Home</title>
+</head>
+<body>
+
+<h3>
+    Your dice roll is <span th:text="${nums}" />
+</h3>
+<form action = "/dice" method = "get">
+    <input type="submit"/>
+</form>
+
+</body>
+</html>
