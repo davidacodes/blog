@@ -1,28 +1,32 @@
-package com.example.blog.controllers;
+package com.example.blog.Controllers;
 
+import com.example.blog.Models.Post;
+import com.example.blog.Service.PostService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class PostController {
 
+    PostService postSvc;
+
+    public PostController(PostService postSvc) {
+        this.postSvc = postSvc;
+    }
 
 
-//    GET	/posts	posts index page
-        @GetMapping("/posts")
-        @ResponseBody
-        public String posts() {
-            return "Welcome to the posts!";
-        }
+    @GetMapping("/posts")
+    public String index(Model model) {
+        model.addAttribute("posts", postSvc.getAllPosts());
+        return "/Post/index";
+    }
 
-
-//    GET	/posts/{id}	view an individual post
-        @GetMapping("/posts/{id}")
-        @ResponseBody
-        public String getPost(@PathVariable String id) {
-            return "Welcome to post: " + id;
-        }
-
+    @GetMapping("/posts/{id}")
+    public String show(@PathVariable long id, Model model) {
+        model.addAttribute("post", postSvc.getPost(id));
+        return "/Post/show";
+    }
 
 //    GET	/posts/create	view the form for creating a post
         @RequestMapping(path ="/posts/create", method = RequestMethod.GET)
