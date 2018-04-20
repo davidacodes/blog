@@ -18,6 +18,8 @@ public class Post {
     @Column(columnDefinition = "TEXT", nullable = false)
     private String body;
 
+    @OneToOne
+    private User owner;
 
     public Post() { }
 
