@@ -20,6 +20,13 @@ public class PostService {
         return posts;
     }
 
+    public void save (Post post){
+        //Set id based on length
+        post.setId(posts.size());
+        // Add post to post list
+        posts.add(post);
+    }
+
     public Post getPost(long id) {
         return posts.get(((int) id) -1);
     }
