@@ -18,6 +18,13 @@ public class PostController {
         this.postDao = postDao;
     }
 
+    @GetMapping(path = "/")
+    public String home() {
+        return "redirect:/posts";
+    }
+
+
+
 
     @GetMapping(path = "/posts")
     public String index(Model model) {
