@@ -11,9 +11,13 @@
         <div class="text-center" th:each="post : ${posts}">
             <div class="col-sm-6 post">
                 <a class="" th:href="@{/posts/{id}(id=${post.id})}">
-                    <div class="post-card">
-                        <h1 class="post-header" th:text="${post.title}"></h1>
-                        <p class="post-body" th:text="${post.body}"></p>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h5 class="post-header" th:text="${post.title}"></h5>
+                        </div>
+                        <div class="panel-body">
+                            <p class="post-body" th:text="${post.body}"></p>
+                        </div>
                     </div>
                 </a>
             </div>
