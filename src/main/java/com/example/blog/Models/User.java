@@ -36,6 +36,13 @@ public class User {
         this.id = id;
     }
 
+    public User(User copy) {
+        id = copy.id; // this line is Super Important! Many things won't work if it's absent
+        email = copy.email;
+        username = copy.username;
+        password = copy.password;
+    }
+
     public User() {
 
     }
