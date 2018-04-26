@@ -15,11 +15,11 @@ public class HelloWorldController {
         return "Hello from Spring!";
     }
 
-    @GetMapping("/logout")
-    @ResponseBody
-    public String logout() {
-        return "You have logged out.";
-    }
+//    @GetMapping("/logout")
+//    @ResponseBody
+//    public String logout() {
+//        return "You have logged out.";
+//    }
 
     @RequestMapping (path = "/lights", method = RequestMethod.GET)
     @ResponseBody

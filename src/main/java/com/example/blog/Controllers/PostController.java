@@ -28,13 +28,13 @@ public class PostController {
 
     @GetMapping(path = "/posts")
     public String index(Model model) {
-        model.addAttribute("posts", postDao.findAll());
+        model.addAttribute("posts", postSvc.findAll());
         return "posts/index";
     }
 
     @GetMapping(path = "/posts/{id}")
     public String show(@PathVariable long id, Model model) {
-        model.addAttribute("post", postSvc.getPost(id));
+        model.addAttribute("post", postSvc.findOne(id));
         return "posts/show";
     }
 
@@ -54,7 +54,6 @@ public class PostController {
 
 
     // Editing a post
-
 
 
     @GetMapping(path = "/posts/{id}/edit")
