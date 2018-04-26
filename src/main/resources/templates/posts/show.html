@@ -6,13 +6,20 @@
 <div th:replace="partials/navbar :: navbar"></div>
 <div class="container">
     <div class="row">
-        <h2 class="text-center ind-post-header" th:text="${post.title}"></h2>
+        <div class="col-sm-8 blog-main">
+            <div class="post">
+                <div class="blog-post">
+                    <a class="" th:href="@{/posts/{id}(id=${post.id})}">
+                        <h2 class="blog-post-title" th:text="${post.title}"></h2>
+                    </a>
+                    <p class="blog-post-meta">Month DD,YYYY by <a href="#">User</a></p>
+                    <div class="" th:text="${post.body}"></div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="row ind-post-body">
-        <p class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 text-center" th:text="${post.body}"></p>
-    </div>
-    <div class="row" style="margin-top: 25px;">
-        <a class="col-xs-offset-4 col-xs-2" th:href="@{/posts}">
+    <div class="row">
+        <a class="col-xs-2" th:href="@{/posts}">
             <Button class="col-xs-12 btn btn-primary">Back</Button>
         </a>
         <a class="col-xs-2" th:href="@{/posts/{id}/edit(id=${post.id})}">
@@ -20,7 +27,6 @@
         </a>
     </div>
 </div>
-
 <div th:replace="partials/footer :: footer"></div>
 </body>
 </html>

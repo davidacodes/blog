@@ -9,18 +9,17 @@
 <div th:fragment="createform">
     <form th:action="@{/posts/create}" th:method="post" th:object="${post}">
         <div class="row">
-            <input class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3" type="text" th:field="*{title}" placeholder="Title" />
+            <input class="col-sm-offset-2 col-sm-8" type="text" th:field="*{title}" placeholder="Title" />
         </div>
         <div class="row">
-            <textarea class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3" th:field="*{body}"  cols="50" rows="10" placeholder="Body"></textarea>
+            <textarea class="col-sm-offset-2 col-sm-8" th:field="*{body}"  cols="50" rows="10" placeholder="Body"></textarea>
         </div>
 
         <div class="row">
-            <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
-                <a th:href="@{/posts}"><button class="col-xs-6 col-sm-6 btn btn-primary">Back</button></a>
-                <button class="col-xs-6 col-sm-6 btn btn-success">Submit</button>
+            <div class="col-sm-offset-4 col-sm-6">
+                <a th:href="@{/posts}"><button class="col-xs-4 col-sm-4 btn btn-primary">Back</button></a>
+                <button class="col-xs-4 col-sm-4 btn btn-success">Submit</button>
             </div>
-
         </div>
     </form>
 </div>
@@ -30,22 +29,26 @@
         <div class="form-group">
             <input type="hidden" th:field="*{id}" th:value="${id}"/>
             <div class="row">
-                <input class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3" type="text" th:field="*{title}" th:value="${title}" placeholder="Post title...." />
+                <input class="col-sm-offset-2 col-sm-8" type="text" th:field="*{title}" th:value="${title}" placeholder="Post title...." />
             </div>
             <div class="row">
-                <textarea class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3" th:field="*{body}" th:value="${body}" cols="50" rows="10" placeholder="Body"></textarea>
+                <textarea class="col-sm-offset-2 col-sm-8" th:field="*{body}" th:value="${body}" cols="50" rows="10" placeholder="Body"></textarea>
             </div>
             <div class="row">
-                <button class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 btn btn-success">Submit</button>
-
+                <div class="col-sm-offset-4 col-sm-6">
+                    <button class="col-xs-4 col-sm-4 btn btn-success">Submit</button>
+                        <form th:action="@{/posts/{id}/delete(id = ${post.id})}" th:method="post" th:object="${post}">
+                        <button class="col-xs-4 col-sm-4 btn btn-danger">Delete</button>
+                    </form>
+                </div>
             </div>
         </div>
     </form>
-    <form th:action="@{/posts/{id}/delete(id = ${post.id})}" th:method="post" th:object="${post}">
-        <div class="row">
-            <button class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 btn btn-danger">Delete</button>
-        </div>
-    </form>
+    <!--<form th:action="@{/posts/{id}/delete(id = ${post.id})}" th:method="post" th:object="${post}">-->
+        <!--<div class="row">-->
+            <!--<button class="col-xs-4 col-sm-4 btn btn-danger">Delete</button>-->
+        <!--</div>-->
+    <!--</form>-->
 </div>
 
 
